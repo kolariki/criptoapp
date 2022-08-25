@@ -27,8 +27,8 @@ const CoinItem = ({ coin }) => { //aqui extraemos los valores de coin visibles e
         >
           % {coin.price_change_percentage_24h}
         </Text>
-        <Text style={styles.textPrice}> ${coin.high_24h} </Text>
-        <Text style={styles.textPrice}>${coin.low_24h} </Text>
+        <Text style={styles.priceHigh}> ${coin.high_24h} </Text>
+        <Text style={styles.priceLow}>${coin.low_24h} </Text>
       </View>
     </View>
   );
@@ -48,14 +48,16 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#fff",
+    textAlign: "left",
   },
   image: {
     width: 30,
     height: 30,
-    marginRight: 10,
+    marginRight: 20,
+    alignItems: "stretch",
   },
   textSymbol: {
-    color: "grey",
+    color: "#778899",
     textTransform: "uppercase",
   },
   pricePercentage: {
@@ -75,7 +77,15 @@ const styles = StyleSheet.create({
   textExtra:{
     color: "#fff",
     textAlign: "left",
-  }
+  },
+  priceHigh: {
+    color: "#ff4500",
+    textAlign: "right",
+  },
+  priceLow: {
+    color: "yellow",
+    textAlign: "right",
+  },
 });
 
 export default CoinItem;

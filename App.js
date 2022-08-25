@@ -19,8 +19,9 @@ const App = () => {
 
 
 
-//Fetch API es una interfaz para obtener información de una URL. Lo bueno es que la mayoría de los navegadores modernos incluyen la función de manera global, por lo que podemos usarla sin necesidad de instalar librerías adicionales en nuestros proyectos
-//creamos la constante llamada loadData que me devuelve los datos del API, como es asincrona usamos una funcion con el termino async
+//Fetch API es una interfaz para obtener información de una URL. Lo bueno es que la mayoría de los navegadores modernos incluyen la función de manera global =>
+// <= por lo que podemos usarla sin necesidad de instalar librerías adicionales en nuestros proyectos
+//creamos la constante llamada loadData que me devuelve los datos del API, como es asincrona usamos la funcion async
   const loadData = async () => {
     const res = await fetch(
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
