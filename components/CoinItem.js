@@ -1,15 +1,19 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 
-const CoinItem = ({ coin }) => {
+const CoinItem = ({ coin }) => { //aqui extraemos los valores de coin visibles en nuestra app, en este caso (image, name, symbol, current_price, coin.price_change_percentage_24h,etc ).
   return (
     <View style={styles.containerItem}>
+      <Text style={styles.textSymbol}> {coin.symbol} </Text> 
       <View style={styles.coinName}>
-        <Image style={styles.image} source={{ uri: coin.image }} />
+        <Image style={styles.image} source={{ uri: coin.image }} /> 
         <View style={styles.containername}>
-          <Text style={styles.text}>{coin.name}</Text>
-          <Text style={styles.textSymbol}> {coin.symbol} </Text>
+          <Text style={styles.text}>{coin.name}</Text> 
+          <Text style={styles.textExtra}>Change 24hs</Text>
+          <Text style={styles.textExtra}>High 24hs </Text>
+          <Text style={styles.textExtra}>Low 24hs </Text>
         </View>
+          
       </View>
       <View>
         <Text style={styles.textPrice}>${coin.current_price} </Text>
@@ -21,22 +25,26 @@ const CoinItem = ({ coin }) => {
               : styles.priceDown,
           ]}
         >
-          {coin.price_change_percentage_24h}
+          % {coin.price_change_percentage_24h}
         </Text>
+        <Text style={styles.textPrice}> ${coin.high_24h} </Text>
+        <Text style={styles.textPrice}>${coin.low_24h} </Text>
       </View>
     </View>
   );
 };
 
+
+//DAMOS ESTILO A LOS VIEW / IMAGE Y TEXT.
 const styles = StyleSheet.create({
   containerItem: {
     backgroundColor: "#121212",
     paddingTop: 10,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-between", //PARA DAR ESPACIO ENTRE TEXTO E IMAGEN
   },
   coinName: {
-    flexDirection: "row",
+    flexDirection: "row", //PARA COLOCAR UN ELEMENTO AL LADO DE OTRO
   },
   text: {
     color: "#fff",
@@ -47,7 +55,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   textSymbol: {
-    color: "#434343",
+    color: "grey",
     textTransform: "uppercase",
   },
   pricePercentage: {
@@ -63,6 +71,10 @@ const styles = StyleSheet.create({
   textPrice:{
     color: "#fff",
     textAlign: "right",
+  },
+  textExtra:{
+    color: "#fff",
+    textAlign: "left",
   }
 });
 
